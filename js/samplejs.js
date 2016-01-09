@@ -1,20 +1,47 @@
+
 var r, y, z, h, divName1, x, amtDiv, pwdName;
 var uPatn = /^[a-zA-Z]+$/;
 var pPatn = /^[0-9]+$/;
 x = document.createElement("span");
-x.setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
-var x1 = document.createElement("span");
-x1.setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
+x1 = document.createElement("span");
 
-function validateMyForm() {
+function fnName() {
     y = document.getElementById("name1");
-    z = document.getElementById("amount");
-    h = document.getElementById("pwd");
     divName1 = document.getElementById("nameDivID");
-    divName1.classList.add("has-feedback");
+    divName1.appendChild(x);
+    if (y.value.match(uPatn)) {
+        x.setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
+        divName1.setAttribute("class", " col-xs-10 row has-success has-feedback");
+    } else {
+        divName1.setAttribute("class", " col-xs-10 row has-error has-feedback");
+        x.setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
+    }
+}
+
+function fnPwd() {
+    h = document.getElementById("pwd");
     pwdName = document.getElementById("pwdDivID");
-    amtDiv = document.getElementById("amtDivID")
-    pwdName.classList.add("has-feedback");
+    pwdName.appendChild(x1);
+    if (h.value.match(pPatn) && h.value.length > 6) {
+        x1.setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
+        pwdName.setAttribute("class", " col-xs-10 row has-success has-feedback");
+    } else {
+        pwdName.setAttribute("class", " col-xs-10 row has-error has-feedback");
+        x1.setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
+    }
+}
+
+function fnAmount() {
+    z = document.getElementById("amount");
+    amtDiv = document.getElementById("amtDivID");
+    if (z.value.match(pPatn)) {
+        amtDiv.setAttribute("class", " input-group col-xs-10 row has-success has-feedback");
+    } else {
+        amtDiv.setAttribute("class", " input-group col-xs-10 row has-error has-feedback");
+    }
+}
+
+function validateForm() {
     if (typeof(Storage) !== "undefined") {
         localStorage.setItem("fname", y.value);
         localStorage.setItem("Amount", z.value);
@@ -24,43 +51,4 @@ function validateMyForm() {
     console.log("Name:" + localStorage.getItem("fname") + "<br>" + "Amount:" + localStorage.Amount + ".00");
     var div = document.getElementById("contentID")
     div.innerHTML = "Name:" + localStorage.getItem("fname") + "<br>" + "Amount:" + localStorage.Amount + ".00";
-    if (y.value.match(uPatn)) {
-        if (divName1.getElementsByTagName('span').length > 0) {
-            divName1.removeChild("span");
-            divName1.classList.remove("has-error");
-        } else {
-            divName1.appendChild(x);
-            divName1.classList.add("has-success");
-        }
-    } else {
-        if (divName1.getElementsByTagName('span').length > 0) {
-            divName1.removeChild("span");
-            divName1.classList.remove("has-success");
-        } else {
-            divName1.appendChild(x1);
-            divName1.classList.add("has-error");
-        }
-    }
-    if (h.value.match(pPatn) && h.value.length > 6) {
-        if (pwdName.getElementsByTagName('span').length > 0) {
-            pwdName.removeChild("span");
-            pwdName.classList.remove("has-error");
-        } else {
-            pwdName.appendChild(x);
-            pwdName.classList.add("has-success");
-        }
-    } else {
-        if (pwdName.getElementsByTagName('span').length > 0) {
-            pwdName.removeChild("span");
-            pwdName.classList.remove("has-success");
-        } else {
-            pwdName.appendChild(x1);
-            pwdName.classList.add("has-error");
-        }
-    }
-    if (z.value.match(pPatn)) {
-        amtDiv.classList.add("has-success");
-    } else {
-        amtDiv.classList.add("has-error");
-    }
 }
