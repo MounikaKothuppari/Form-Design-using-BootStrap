@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="http://jebagaria.com/songs/favicon.ico-html5-7319.ico" type=" image/gif/png" sizes="16x16">
+
+    <link rel="stylesheet" href="..\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\css\bootstrap.css">
+    <link rel="stylesheet" href="..\css\bootstrap-theme.css">
+    <link rel="stylesheet" href="css\samplecss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js\samplejs.js"></script>
+</head>
+
+<body>
+    <div class="container ">
+        <div class=" row row1 form-group">
+            <div class="col-xs-6 col-sm-2"><img src="hai.gif" alt="logo" class="img-responsive"></div>
+            <div class="col-xs-6 col-sm-7">
+                <h1>Project Name</h1></div>
+            <div class="col-xs-12 col-sm-3 text-right">
+                <h4>Mounika Kothuppari</h4></div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <form action="#" class="form-horizontal ">
+                <div class="col-xs-12">
+                    <h2 class="col-xs-12">Form</h2></div>
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2">Name:</label>
+                    <div class="col-sm-10 col-xs-12 row" id="nameDivID">
+                        <input type="text" oninput="fnName()" class="form-control" id="name1" value="" aria-describedby="name1Status" placeholder="Enter Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-xs-12 control-label">Password:</label>
+                    <div class="col-sm-10 col-xs-12 row" id="pwdDivID">
+                        <input type="password" oninput="fnPwd()" class="form-control" id="pwd" value="" aria-describedby="pwdStatus" placeholder="Enter Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class=" col-sm-2 col-xs-12 control-label ">Amount:</label>
+                    <div class="input-group col-sm-10  col-xs-12 row" id="amtDivID">
+                        <span class="input-group-addon ">$</span>
+                        <input type="text" class="form-control" oninput="fnAmount()" id="amount">
+                        <span class="input-group-addon">.00</span></div>
+                </div>
+                <div class="col-sm-10 col-xs-12 col-sm-offset-2">
+                    <label class="radio-inline">
+                        <input type="radio" value="Savings" id="r1" name="optradio">Savings
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="Current" id="r2" name="optradio">Current
+                    </label>
+                </div>
+                <input type="button" class=" col-sm-2 col-xs-5 col-sm-offset-2 btn btn-default" onclick="validateForm()" value="Submit" />
+                <input type="reset" class=" col-sm-2  col-xs-5 col-xs-offset-1 col-sm-offset-1  btn btn-default" value="Reset" />
+            </form>
+        </div>
+        <br>
+        <div class=" col-xs-12 col-sm-4 col-sm-offset-2 text-center" id="contentID">
+        </div>
+        <div class="panel-footer footer">
+            <span class="text-left">@copyright</span>
+        </div>
+    </div>
+</body>
+
+</html>
